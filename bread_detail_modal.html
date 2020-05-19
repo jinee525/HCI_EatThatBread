@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>bread detail pop-up</title>
+  
+  <style>
+    #bread_modal {
+      display:none; <!--처음에는 안보이게 하기-->
+      
+      position:relative;
+      width:100%;
+      height:100%;
+      z-index:1;
+    }
+
+    #bread_modal h2 {
+      margin:0;   
+    }
+
+    #bread_modal button {
+      display:inline-block;
+      width:100px;
+      margin-left:calc(100% - 100px - 10px);
+    }
+
+    #bread_modal .bread_modal_content {
+      width:300px;
+      margin:100px auto;
+      padding:20px 10px;
+      background:#fff;
+      border:2px solid #666;
+    }
+
+    #bread_modal .bread_modal_layer {
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0, 0, 0, 0.5);
+      z-index:-1;
+    }   
+</style>
+  
+</head>
+<body>
+  <div id="root">
+    <button type="button" id="bread_modal_open_btn">빵 디테일 열기</button>
+  </div>
+  
+  <div id="bread_modal">   <!--모달 내용-->
+    <div class="bread_modal_content">
+      <h2>빵 디테일 팝업</h2>
+      <p>빵 디테일 내용</p>
+      <button type="button" id="bread_modal_close_btn">닫기</button>
+      
+    </div>
+    
+    <div class="bread_modal_layer"></div>   <!--모달 배경 레이어-->
+    
+  </div>
+  
+  <script>   <!--버튼누르면 bread_modal의 display값을 block 으로 만들어 모달 보이게 하기-->
+    document.getElementById("bread_modal_open_btn").onclick = function() {
+        document.getElementById("bread_modal").style.display="block";
+    }
+   
+    document.getElementById("bread_modal_close_btn").onclick = function() {
+        document.getElementById("bread_modal").style.display="none";
+    }   
+  </script>
+  
+    
+    
+</body>
+</html>
+    
+    
