@@ -6,7 +6,8 @@
   <title>bread detail pop-up</title>
   
   <style>
-    #bread_modal #reserve_modal {
+
+    #bread_modal, #reserve_modal {
       display:none; /*처음에는 안보이게 하기*/
       
       position:relative;
@@ -15,18 +16,22 @@
       z-index:1;
     }
 
-    #bread_modal #reserve_modal h2 {
-      margin:0;   
-    }
-
-    #bread_modal #reserve_modal button {
+    #bread_modal button, #reserve_modal button {
       display:inline-block;
       width:100px;
-      margin-left:calc(100% - 100px - 10px);
+      margin-top: 10px;
+      font-size: 30px;
+    }
+
+    #reserve_modal xbutton{
+      float: left;
+      width: 100px;
+      font-size: 30px;
     }
 
     #bread_modal .bread_modal_content{
-      width:300px;
+      width:800px;
+      height: 500px;
       margin:100px auto;
       padding:20px 10px;
       background:#fff;
@@ -34,7 +39,8 @@
     }
 
     #reserve_modal .reserve_modal_content{
-      width:300px;
+      width:800px;
+      height: 500px;
       margin:100px auto;
       padding:20px 10px;
       background:#fff;
@@ -60,6 +66,37 @@
       background:rgba(0, 0, 0, 0.5);
       z-index:-1;
     }   
+
+    #bread_detail .bread_detail_image{
+      float: left; 
+      width: 300px;
+      height: auto;
+    }
+
+    #bread_detail{
+      height: 300px;
+      font-size: 20px;
+    }
+
+    #bread_kcal_table,th,td{
+      width: 500px;
+      border-collapse: collapse;
+      border-top: 1px solid #444444;
+      border-bottom: 1px solid #444444;
+      padding: 10px;
+    }
+
+    #reserve_detail .reserve_bread_image{
+      float: left; 
+      width: 300px;
+      height: auto;
+    }
+
+    #reserve_detail .reserve_bread_form, #reserve_detail input {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 30px;
+    }
     
 </style>
   
@@ -75,7 +112,38 @@
   <div id="bread_modal">   <!--빵 디테일 모달 내용-->
     <div class="bread_modal_content">
       <h2>빵 디테일 팝업</h2>
-      <p>빵 디테일 내용</p>
+      <hr>
+      <p>"고소한 유기농 버터로 만든 부드러운 식빵"</p>
+      <div id="bread_detail">
+        <div class="bread_detail_image">
+          <img src="/resource/빵샘플이미지.jpg" width="300" height="auto"></img>
+        </div>
+        <div class="bread_detail_text">
+          <div id="bread_component">
+            <p>재료</p>
+            <p>#밀(국내산) #버터(프랑스산) #설탕(국내산)</p>
+          </div>
+          <div id="bread_kcal">
+            <p>칼로리 정보</p>
+            <table id="bread_kcal_table">
+              <tr>
+                <th>총 칼로리</th>
+                <td colspan="2">303kcal(1회제공량)</td>
+              </tr>
+              <tr>
+                <th>요소</th>
+                <td>나트륨</td>
+                <td>15%</td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>지방</td>
+                <td>25%</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
       <button type="button" id="bread_modal_close_btn">닫기</button>
     </div>
     <div class="bread_modal_layer"></div>   <!--빵 디테일 모달 배경 레이어-->
@@ -83,16 +151,33 @@
   
   <div id="reserve_modal">
      <div class="reserve_modal_content"> <!--예약 모달 내용-->
-     <h2>빵 예약 팝업</h2>
-     <p>빵 예약 내용</p>
-     <form id="reserve_form">
-        <input type="text" value="text"><br/>
-        <input type="date"><br/>
-        <input type="checkbox" value="포장옵션">포장하기<br/>
-        <input type="checkbox" value="알림옵션">문자알림<br/>
-      </form>
-     <button type="button" id="reserve_modal_close_btn">예약 완료</button>
-    </div>
+       <h2>빵 예약 팝업</h2>
+       <hr>
+       <p>"유기농 버터 식빵"</p>
+         <div id="reserve_detail">
+           <div class="reserve_bread_image">
+             <img src="/resource/빵샘플이미지.jpg" width="300" height="auto"></img>
+           </div>
+           <div class="reserve_bread_form">
+             <form id="reserve_form">
+               <label>남은 수량</label>
+               <label>5</label>
+               <label>개<br/label>
+               <label>수량(개)</label>
+               <input type="number" min="1" max="5" value="0"><br/>
+               <label>픽업 날짜</label>
+               <input type="date"><br/>
+               <label>픽업 시간</label>
+               <input type="time" value="10:00:00" min="10:00:00" max="19:00:00"><br/>
+               <input type="checkbox" value="포장옵션">포장 서비스<br/>
+               <input type="checkbox" value="알림옵션">당일 문자 알림 서비스</input>
+             </form>
+            </div>
+         </div>
+        
+        <button type="xbutton" id="reserve_modal_close_btn">예약 취소</button>
+        <button type="button" id="reserve_modal_complete_btn">예약 완료</button> 
+     </div>
     <div class="reserve_modal_layer"></div>   <!--예약 모달 배경 레이어-->
     
   </div>
@@ -110,6 +195,9 @@
         document.getElementById("reserve_modal").style.display="block";
     }
    
+    document.getElementById("reserve_modal_complete_btn").onclick = function() {
+        document.getElementById("reserve_modal").style.display="none";
+    } 
     document.getElementById("reserve_modal_close_btn").onclick = function() {
         document.getElementById("reserve_modal").style.display="none";
     } 
