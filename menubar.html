@@ -1,0 +1,103 @@
+<!-- 상단 고정 메뉴바-->
+<!DOCTYPE html>
+<html>
+    <style>
+
+        header {
+                position: -webkit-sticky; /* Safari */
+                position: sticky;
+                top: 0;
+                left: 0;
+                right: 0;
+                overflow: hidden;
+                height: 75px;
+                padding: 0;
+                margin: 0;
+                color: white;
+                background: teal;
+                font-weight: bold;
+                display: block;
+                justify-content: space-between;
+                align-items: center;
+                }
+        body {
+            /* padding-top: 75px; */
+            background: #EEE;
+            }
+
+        .menu a{
+            float: center;
+            font-size: 27px;
+        }
+        .menu .r{
+            float: right;
+            
+        }
+
+        .navbar {
+        width: 100%;
+        overflow: auto;
+        }
+
+        .navbar a {
+        float: left;
+        padding: 12px;
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+        width: 20%; /* Four links of equal widths */
+        text-align: center;
+        }
+
+        .navbar a:hover {
+        background-color:rgb(62, 109, 109);
+        }
+
+
+
+        @media screen and (max-width: 500px) {
+        .navbar a {
+            float: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+        }
+    </style>
+
+
+    <body>
+        <header>        
+        <div class = "menu">
+            <button>Home</button>
+            <input type="text" id="mySearch"  placeholder="Search.." title="Type in a category">
+            <button>Search</button>
+            <a> <strong>Eat That Bread</strong> </a>
+            <button class = "r">Log in</button>
+        </div>
+
+        <div class="navbar">
+            <a class="active" href="#">Story</a> 
+            <a href="#">Best Bread</a> 
+            <a href="#">All Bread</a> 
+            <a href="#">Search Bread</a>
+        </div>
+       
+    </header>
+
+
+    <h3>Sticky Navigation Bar Example</h3>
+    <p>The navbar will <strong>stick</strong> to the top when you reach its scroll position.</p>
+    <p><strong>Note:</strong> Internet Explorer, Edge 15 and earlier versions do not support sticky positioning. Safari requires a -webkit- prefix.</p>
+    <p>Some text to enable scrolling. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    <p>Some text to enable scrolling. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    <p>Some text to enable scrolling. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    <p>Some text to enable scrolling. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    <p>Some text to enable scrolling. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    <p>Some text to enable scrolling. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    <p>Some text to enable scrolling. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    
+
+
+    </body>
+</html>
