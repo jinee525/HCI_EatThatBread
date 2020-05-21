@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html>
+  
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>bread detail pop-up</title>
   
   <style>
+    
 
-    #bread_modal, #reserve_modal {
+    #bread_modal, #reserve_modal, #login_modal {
       display:none; /*처음에는 안보이게 하기*/
       
       position:relative;
       width:100%;
       height:100%;
       z-index:1;
+      color:rgb(108, 84, 64);
     }
 
-    #bread_modal button, #reserve_modal button {
+    #bread_modal button, #reserve_modal button, #login_modal button {
       display:inline-block;
-      width:100px;
+      width: fit-content;
       margin-top: 10px;
       font-size: 30px;
+      margin-left: 10px;
+      color: rgb(108, 84, 64);
     }
 
-    #reserve_modal xbutton{
+    #reserve_modal xbutton, #login_modal xbutton{
       float: left;
-      width: 100px;
+      width: fit-content;
       font-size: 30px;
+      color: rgb(108, 84, 64);
+      background-color: rgb(252,246,224);
     }
 
     #bread_modal .bread_modal_content{
@@ -34,8 +41,8 @@
       height: 500px;
       margin:100px auto;
       padding:20px 10px;
-      background:#fff;
-      border:2px solid #666;
+      background: rgb(210,189,160);
+      border:2px solid rgb(108, 84, 64);
     }
 
     #reserve_modal .reserve_modal_content{
@@ -43,8 +50,17 @@
       height: 500px;
       margin:100px auto;
       padding:20px 10px;
-      background:#fff;
-      border:2px solid #666;
+      background: rgb(210,189,160);
+      border:2px solid rgb(108, 84, 64);
+    }
+
+    #login_modal .login_modal_content{
+      width:800px;
+      height: 500px;
+      margin:100px auto;
+      padding:20px 10px;
+      background: rgb(210,189,160);
+      border:2px solid rgb(108, 84, 64);
     }
     
     #bread_modal .bread_modal_layer {
@@ -67,23 +83,41 @@
       z-index:-1;
     }   
 
+    #login_modal .login_modal_layer {
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0, 0, 0, 0.5);
+      z-index:-1;
+    }   
+
     #bread_detail .bread_detail_image{
       float: left; 
       width: 300px;
       height: auto;
+      margin-right: 30px;
     }
 
     #bread_detail{
       height: 300px;
       font-size: 20px;
+      color: rgb(108, 84, 64);
+    }
+    #bread_component{
+      font-size: 20px;
     }
 
     #bread_kcal_table,th,td{
-      width: 500px;
+      width: 400px;
       border-collapse: collapse;
       border-top: 1px solid #444444;
       border-bottom: 1px solid #444444;
       padding: 10px;
+      border-color: rgb(108, 84, 64);
+      background-color: rgb(252,246,224);
+      font-size: 20px;
     }
 
     #reserve_detail .reserve_bread_image{
@@ -94,8 +128,14 @@
 
     #reserve_detail .reserve_bread_form, #reserve_detail input {
       display: inline-block;
-      margin-left: 10px;
-      font-size: 30px;
+      margin-left: 20px;
+      font-size: 20px;
+      color: rgb(108, 84, 64);
+    }
+
+    button{
+      background-color: rgb(252,246,224);
+      width: fit-content;
     }
     
 </style>
@@ -103,20 +143,23 @@
 </head>
 <body>
   <div id="root">
-    <button type="button" id="bread_modal_open_btn">빵 디테일 열기</button>
+    <button type="button" id="bread_modal_open_btn">Detail</button>
   </div>
   <div id="root">
-    <button type="button" id="reserve_modal_open_btn">빵 예약 하기</button>
+    <button type="button" id="reserve_modal_open_btn">Reserve</button>
+  </div>
+  <div id="root">
+    <button type="button" id="login_modal_open_btn">Login</button>
   </div>
   
   <div id="bread_modal">   <!--빵 디테일 모달 내용-->
     <div class="bread_modal_content">
-      <h2>빵 디테일 팝업</h2>
+      <h2>Bread Details</h2>
       <hr>
-      <p>"고소한 유기농 버터로 만든 부드러운 식빵"</p>
+      <p>"Organic butter milk bread!"</p>
       <div id="bread_detail">
         <div class="bread_detail_image">
-          <img src="/resource/빵샘플이미지.jpg" width="300" height="auto"></img>
+          <img src="/resource/bread_sample/빵샘플이미지.jpg" width="300" height="auto"></img>
         </div>
         <div class="bread_detail_text">
           <div id="bread_component">
@@ -144,44 +187,64 @@
           </div>
         </div>
       </div>
-      <button type="button" id="bread_modal_close_btn">닫기</button>
+      <button type="button" id="bread_modal_close_btn">Close</button>
     </div>
     <div class="bread_modal_layer"></div>   <!--빵 디테일 모달 배경 레이어-->
   </div>
   
   <div id="reserve_modal">
      <div class="reserve_modal_content"> <!--예약 모달 내용-->
-       <h2>빵 예약 팝업</h2>
+       <h2>Reserve</h2>
        <hr>
-       <p>"유기농 버터 식빵"</p>
+       <p>"Organic butter milk bread!"</p>
          <div id="reserve_detail">
            <div class="reserve_bread_image">
-             <img src="/resource/빵샘플이미지.jpg" width="300" height="auto"></img>
+             <img src="/resource/bread_sample/빵샘플이미지.jpg" width="300" height="auto"></img>
            </div>
            <div class="reserve_bread_form">
              <form id="reserve_form">
-               <label>남은 수량</label>
+               <label>Stock</label>
                <label>5</label>
-               <label>개<br/label>
-               <label>수량(개)</label>
+               <label>breads<br/label>
+               <label># of breads</label>
                <input type="number" min="1" max="5" value="0"><br/>
-               <label>픽업 날짜</label>
+               <label>Pick-up Date</label>
                <input type="date"><br/>
-               <label>픽업 시간</label>
+               <label>Pick-up tTime</label>
                <input type="time" value="10:00:00" min="10:00:00" max="19:00:00"><br/>
-               <input type="checkbox" value="포장옵션">포장 서비스<br/>
-               <input type="checkbox" value="알림옵션">당일 문자 알림 서비스</input>
+               <input type="checkbox" value="포장옵션">Packing service<br/>
+               <input type="checkbox" value="알림옵션">Give me notification on the day.</input>
              </form>
             </div>
          </div>
         
-        <button type="xbutton" id="reserve_modal_close_btn">예약 취소</button>
-        <button type="button" id="reserve_modal_complete_btn">예약 완료</button> 
+        <button type="xbutton" id="reserve_modal_close_btn">Cancle</button>
+        <button type="button" id="reserve_modal_complete_btn">Reserve</button> 
      </div>
     <div class="reserve_modal_layer"></div>   <!--예약 모달 배경 레이어-->
     
   </div>
   
+  <div id="login_modal">
+    <div class="login_modal_content"> <!--예약 모달 내용-->
+      <h2>Login</h2>
+      <hr>
+      <p>"Please enter your ID and password."</p>
+        <div id="login_detail">
+            <form id="reserve_form">
+              <label>ID</label>
+              <input type="text"><br/>
+              <label>Password</label>
+              <input type="text"><br/>
+            </form>
+        </div>
+       
+       <button type="xbutton" id="login_modal_close_btn">Cancel</button>
+       <button type="button" id="login_modal_complete_btn">Enter</button> 
+    </div>
+   <div class="login_modal_layer"></div>   <!--예약 모달 배경 레이어-->
+  </div>
+
   <script>   //버튼처리
     document.getElementById("bread_modal_open_btn").onclick = function() {
         document.getElementById("bread_modal").style.display="block";
@@ -201,6 +264,19 @@
     document.getElementById("reserve_modal_close_btn").onclick = function() {
         document.getElementById("reserve_modal").style.display="none";
     } 
+
+    document.getElementById("login_modal_open_btn").onclick = function() {
+        document.getElementById("login_modal").style.display="block";
+    }
+  
+    document.getElementById("login_modal_complete_btn").onclick = function() {            
+        document.getElementById("login_modal").style.display="none";
+    } 
+    document.getElementById("login_modal_close_btn").onclick = function() {
+        document.getElementById("login_modal").style.display="none";
+    } 
+
+    
     
 
   </script>
@@ -209,8 +285,4 @@
     
 </body>
 </html>
-    
-    
   
-</body>
-</html>
