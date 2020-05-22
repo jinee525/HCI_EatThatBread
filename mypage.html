@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login_mypage</title>
+<style>
+    *{
+        font-size: 20px;
+        color: rgb(108, 84, 64);
+    }
+    
+    #mypage_wrapper{
+        display: flex;
+        justify-content: center; /*가로에서 가운데에 배치*/
+        align-items: center; /*세로가운데*/
+    }
+    #updateForm{
+        width:1000px;
+        margin-left:auto;
+        margin-right:auto;
+        align-items: center;
+    }
+    #reserve_list_table{
+        border-collapse: collapse;
+        border-top: 1px solid #444444;
+        border-bottom: 1px solid #444444;
+
+        text-align: center;
+        width:1000px;
+        text-align:center;
+        position:relative;
+        left:50%;
+        transform:translateX(-50%);
+    }
+    #updateForm td:nth-child(1){text-align:right}
+    #updateForm input{
+        
+        margin-left:20px;
+    }
+    
+    #updateBtn, #deleteBtn{
+        align-items: center;
+        padding: 10px;
+        width:fit-content; 
+        height: fit-content;
+        color: rgb(108, 84, 64); 
+        background:rgb(252,246,224); 
+        border-color:rgb(108, 84, 64);
+    }
+    #mypage_button{
+        display: flex;
+        justify-content: center;
+    }
+    .formRowTitle{
+        font-weight: 1000;
+        color: rgb(108, 84, 64);
+    }
+    
+    
+</style>
+</head>
+<body>
+
+    <div class="mypage_wrapper">
+        <br>
+        <form id="updateForm">
+            <table>
+                <tr>
+                    <td class="formRowTitle">* ID</td>
+                    <td><input type="text" name="userId" placeholder="enter your ID" readonly></td>
+                </tr>
+                <tr>
+                    <td class="formRowTitle">* Password</td>
+                    <td><input type="text" name="userName" placeholder="number+alphabet>=8" required></td>
+
+                </tr>
+                <tr>
+                    <td class="formRowTitle">Phone Number</td>
+                    <td><input type="tel" name="phone" placeholder="000-0000-0000"></td>
+                </tr>
+                <tr>
+                    <td class="formRowTitle">What kind of bread do you like best?</td>
+                    <td>
+                        <input type="checkbox" value="WHITE BREAD">WHITE BREAD</input>
+                        <input type="checkbox" value="WHEAT BREAD">WHEAT BREAD</input>
+                        <input type="checkbox" value="GRAIN BREAD">GRAIN BREAD</input>
+                        <input type="checkbox" value="BAGEL">BAGEL<br/input>
+                        <input type="checkbox" value="CROISSANT">CROISSANT</input>
+                        <input type="checkbox" value="BAGUETTE">BAGUETTE</input>
+                        <input type="checkbox" value="ROLL">ROLL</input>
+                        <input type="checkbox" value="DONUT">DONUT</input>
+                    </td>
+                </tr>
+                
+            </table>
+            <br>
+            <div id="mypage_button">
+                <button type="button" id="updateBtn">Update</button>
+                <button type="button" id="deleteBtn" onclick="">Sign out</button>
+            </div>
+        </form>
+
+        <h1 style="font-size: 40px; font-weight:1000; text-align: center;">Reservation List</h1>
+        <h1 style="font-size: 25px; font-weight:500; text-align: center;">"Status of reservation: reserve(before pick-up day)->waiting(pick-up day)->complete(after pick-up)"</h1>
+        <table id="reserve_list_table" >
+            <th>R#</th>
+            <th>Date</th>
+            <th>Content</th>
+            <th>Status</th>                
+            <tr>
+                <td>47</td>
+                <td>2020-05-25</td>
+                <td>Strawberry Cream Macaron(2), Green Tea Tart(1)</td>
+                <td>waiting</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>2020-05-23</td>
+                <td>Deep Choco Cake(1)</td>
+                <td>complete</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>2020-05-21</td>
+                <td>choco cream bun(2)</td>
+                <td>complete</td>
+            </tr>
+        </table>
+
+        
+
+    </div>
+
+
+</body>
+</html>
