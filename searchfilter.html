@@ -9,10 +9,12 @@
             color: rgb(108, 84, 64);
         }
 
-
+        #filters {
+            border:rgb(108, 84, 64)
+        }
     
         input[type=text] {
-        
+        width:300px; height:30px;
         padding: 6px;
         margin-top: 8px;
         margin-right: 16px;
@@ -24,13 +26,13 @@
     </style>
     <body>
         <div id = "search">
-            <input type="text" id="mySearch"  placeholder="Search.." title="Type in a category">
+            <input type="text" id="mySearch"  placeholder="Search.." title="Type in a category" >
             <button>Search</button>
         </div>
       
         <p>You can use filters for advanced search:  </p>
 
-        <div id = "filters">
+        <div id = "filters" style="border: 1px solid; width: 350px; padding: 10px;">
         <tr>
             <td class="formRowTitle"><strong>Bread Type</strong> </td>
             <td>
