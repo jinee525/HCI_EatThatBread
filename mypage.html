@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Cambria' rel='stylesheet'>
 <head>
 <meta charset="UTF-8">
 <title>login_mypage</title>
@@ -72,6 +72,7 @@
 
     <div class="mypage_wrapper">
         <br>
+        <h1 style="font-size: 40px; font-weight:1000; text-align: center;">My Information</h1>
         <form id="updateForm">
             <table>
                 <tr>
@@ -103,24 +104,32 @@
                 
             </table>
             <br>
-            <div id="mypage_button"  >
-                <button type="button" id="updateBtn" onmouseup="change2(this)" onmousedown="change1(this)" >Update</button>
-                <button type="button" id="deleteBtn" onmouseup="change2(this)" onmousedown="change1(this)">Sign out</button>
-            </div>
         </form>
 
         <h1 style="font-size: 40px; font-weight:1000; text-align: center;">Reservation List</h1>
-        <h1 style="font-size: 25px; font-weight:500; text-align: center;">"Status of reservation: reserve(before pick-up day)->waiting(pick-up day)->complete(after pick-up)"</h1>
         <table id="reserve_list_table" >
             <th>R#</th>
             <th>Date</th>
             <th>Content</th>
-            <th>Status</th>                
+            <th>Status</th>  
+            
+            <tr>
+                <td>100</td>
+                <td>2020-06-15</td>
+                <td>Carrot cake(1)</td>
+                <td>waiting</td>
+            </tr>
+            <tr>
+                <td>75</td>
+                <td>2020-06-01</td>
+                <td>Strawberry cake(1)</td>
+                <td>complete</td>
+            </tr>
             <tr>
                 <td>47</td>
                 <td>2020-05-25</td>
                 <td>Strawberry Cream Macaron(2), Green Tea Tart(1)</td>
-                <td>waiting</td>
+                <td>complete</td>
             </tr>
             <tr>
                 <td>29</td>
@@ -131,7 +140,7 @@
             <tr>
                 <td>25</td>
                 <td>2020-05-21</td>
-                <td>choco cream bun(2)</td>
+                <td>Choco cream bun(2)</td>
                 <td>complete</td>
             </tr>
         </table>
@@ -140,18 +149,6 @@
 
     </div>
 
-    <script language="JavaScript">
-
-        function change1(obj){ //누를때
-            obj.style.background = 'rgb(108, 84, 64)';
-            obj.style.color = 'rgb(252,246,224)';
-        }
-        function change2(obj){  //다시 뗄때
-            obj.style.background = 'rgb(252,246,224)';
-            obj.style.color = 'rgb(108, 84, 64)';
-        }
-
-    </script>
 
 </body>
 </html>
